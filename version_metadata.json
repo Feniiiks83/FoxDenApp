@@ -1,0 +1,6 @@
+{
+  "versionCode": 101,
+  "versionName": "1.0.1",
+  "downloadUrl": "https://raw.githubusercontent.com/Feniiiks83/FoxDenApp.github.io/main/downloads/nfoxapp_v1.0.1.apk",
+  "releaseNotes": "• Добавлена фоновая автозагрузка кэша\n• Оптимизирован экран настроек\n• Исправлены ошибки подключения"
+}

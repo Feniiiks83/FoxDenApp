@@ -6,7 +6,7 @@
 <div align="center">
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/Feniiiks83/FoxDenApp/android-ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&color=7c3aed)](https://github.com/Feniiiks83/FoxDenApp/actions)
-[![Version](https://img.shields.io/badge/version-v67.34.2.69-blue?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Feniiiks83/FoxDenApp/releases)
+[![Version](https://img.shields.io/badge/version-v0.0.1-blue?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Feniiiks83/FoxDenApp/releases)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-purple?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 

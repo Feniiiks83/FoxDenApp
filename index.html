@@ -3,156 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFOXAPP | Твой интернет — твои правила</title>
+    <meta name="description" content="NFoxApp — AI-ассистенты, MTProto/SOCKS5 прокси и нативный обход DPI в одном стеклянном интерфейсе.">
+    <title>NFoxApp 🦊 — AI Hub · Прокси · Обход DPI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-1: #0B101E; --bg-2: #1A1F3A; --bg-3: #2D1B4E;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-blur: blur(14px);
-            --accent-blue: #00E5FF;
-            --accent-purple: #8A2BE2;
-            --accent-green: #4CAF50;
-            --text-main: #FFFFFF;
-            --text-sec: rgba(255, 255, 255, 0.65);
-            --radius: 16px;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
-            background-attachment: fixed;
-            color: var(--text-main);
-            min-height: 100vh; overflow-x: hidden;
-        }
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-            transition: all 0.3s ease;
-        }
-        header {
-            position: fixed; top: 0; width: 100%; z-index: 100;
-            padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(180deg, rgba(11,16,30,0.9) 0%, transparent 100%);
-        }
-        .logo { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
-        .badge { font-size: 11px; background: rgba(76,175,80,0.15); color: var(--accent-green); padding: 4px 10px; border-radius: 20px; border: 1px solid rgba(76,175,80,0.3); }
-        main { padding: 100px 20px 40px; max-width: 1100px; margin: 0 auto; }
-
-        /* HERO */
-        .hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-bottom: 60px; flex-wrap: wrap; }
-        .hero-text { flex: 1; min-width: 300px; }
-        .hero h1 { font-size: 42px; line-height: 1.15; margin-bottom: 16px; background: linear-gradient(90deg, #fff, var(--accent-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 18px; color: var(--text-sec); margin-bottom: 30px; line-height: 1.5; }
-        .hero-visual { flex: 0 0 280px; display: flex; justify-content: center; }
-        .phone {
-            width: 260px; height: 520px; background: #000; border-radius: 36px; border: 4px solid #2A2A35;
-            position: relative; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-        }
-        .phone-screen { width: 100%; height: 100%; background: linear-gradient(180deg, var(--bg-1), var(--bg-2)); padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-        .notch { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 80px; height: 6px; background: #111; border-radius: 10px; }
-        .p-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; height: 40px; margin-bottom: 4px; }
-        .p-btn { background: var(--accent-blue); border-radius: 12px; height: 36px; margin-top: auto; opacity: 0.8; }
-
-        /* FEATURES GRID */
-        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 60px; }
-        .feat-card { padding: 24px; text-align: center; cursor: default; }
-        .feat-card i { font-size: 32px; margin-bottom: 12px; color: var(--accent-blue); transition: 0.3s; }
-        .feat-card h3 { margin-bottom: 8px; font-size: 18px; }
-        .feat-card p { font-size: 13px; color: var(--text-sec); }
-        .feat-card:hover { border-color: var(--accent-purple); box-shadow: 0 0 20px rgba(138,43,226,0.25), inset 0 0 10px rgba(255,255,255,0.05); transform: translateY(-4px); }
-        .feat-card:hover i { color: var(--accent-purple); text-shadow: 0 0 10px var(--accent-purple); }
-
-        /* CTA */
-        .cta-box { text-align: center; padding: 40px 20px; }
-        .btn-main {
-            display: inline-block; padding: 16px 48px; font-size: 18px; font-weight: 700; color: #000;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 30px; text-decoration: none; box-shadow: 0 0 15px rgba(0,229,255,0.3);
-            transition: 0.3s; cursor: pointer; border: none;
-        }
-        .btn-main:hover { transform: scale(1.04); box-shadow: 0 0 25px rgba(0,229,255,0.5); }
-
-        /* ANIMATIONS & SCROLL REVEAL */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .hero-visual { animation: float 6s ease-in-out infinite; }
-
-        @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; }
-            .hero h1 { font-size: 32px; }
-            .features-grid { grid-template-columns: 1fr; }
-            .phone { width: 220px; height: 440px; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="reveal">
-        <div class="logo"><i class="fa-solid fa-fox" style="color:var(--accent-blue)"></i> NFOXAPP</div>
-        <span class="badge"><i class="fa-solid fa-check-circle"></i> v1.0 Stable</span>
+    <!-- Фоновые неоновые сферы -->
+    <div class="orb orb-purple"></div>
+    <div class="orb orb-blue"></div>
+    <div class="orb orb-pink"></div>
+
+    <!-- ===================== ШАПКА ===================== -->
+    <header class="site-header glass">
+        <a href="#" class="logo">
+            <span class="logo-icon">🦊</span>
+            <span class="logo-text">NFox<span class="logo-accent">App</span></span>
+        </a>
+        <nav class="main-nav" id="mainNav">
+            <a href="#hero">Главная</a>
+            <a href="#features">Возможности</a>
+            <a href="#proxy-monitor">Прокси</a>
+            <a href="#ai-hub">AI Hub</a>
+            <a href="#download">Скачать</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://github.com/FoxDenApp" target="_blank" rel="noopener" class="icon-btn" title="GitHub репозиторий">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-text reveal">
-                <h1>NFOXAPP: Твой интернет — твои правила.</h1>
-                <p>VPN, DNS и обход ограничений в одном стильном решении. Максимальная приватность, скорость и контроль вашего цифрового пространства.</p>
-                <a href="download.html" class="btn-main">ПОЛУЧИТЬ NFOXAPP</a>
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="hero">
+            <div class="hero-content reveal">
+                <div class="hero-badge glass">
+                    <span class="pulse-dot"></span> v1.0.1 Stable · Android 8.0+
+                </div>
+                <h1 class="hero-title">
+                    Твой интернет —<br>
+                    <span class="gradient-text">твои правила.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    NFoxApp объединяет AI-ассистентов (DeepSeek, Qwen, Gemini, Claude),
+                    менеджер MTProto/SOCKS5 прокси и нативный движок обхода DPI
+                    (ByeByeDPI / Desync / QUIC-block) на C++/JNI — в одном стеклянном интерфейсе.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download"></i> Скачать APK</a>
+                    <a href="#proxy-monitor" class="btn btn-ghost"><i class="fa-solid fa-tower-broadcast"></i> Монитор прокси</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-num gradient-text" id="statProxies">—</span><span class="stat-label">прокси в списке</span></div>
+                    <div class="stat"><span class="stat-num gradient-text">5+</span><span class="stat-label">AI-моделей</span></div>
+                    <div class="stat"><span class="stat-num gradient-text">3</span><span class="stat-label">DPI-движка</span></div>
+                </div>
             </div>
-            <div class="hero-visual">
-                <div class="phone">
-                    <div class="notch"></div>
+            <div class="hero-visual reveal delay-2">
+                <div class="phone-mock glass">
+                    <div class="phone-notch"></div>
                     <div class="phone-screen">
-                        <div style="height:14px; display:flex; justify-content:space-between; color:#aaa; font-size:11px;"><span>9:41</span><span><i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-full"></i></span></div>
-                        <div class="p-card glass" style="margin-top:10px; display:flex; align-items:center; padding:0 12px;"><i class="fa-solid fa-shield-halved" style="color:var(--accent-green); margin-right:8px;"></i> VPN: Connected</div>
-                        <div class="p-card glass" style="display:flex; align-items:center; padding:0 12px;"><i class="fa-solid fa-globe" style="color:var(--accent-blue); margin-right:8px;"></i> DNS Shield</div>
-                        <div class="p-card glass" style="display:flex; align-items:center; padding:0 12px;"><i class="fa-solid fa-robot" style="color:var(--accent-purple); margin-right:8px;"></i> AI Core: Online</div>
-                        <div class="p-btn" style="display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600;">ECOSYSTEM READY</div>
+                        <div class="phone-statusbar"><span>9:41</span><span><i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-full"></i></span></div>
+                        <div class="phone-card"><i class="fa-solid fa-shield-halved ok"></i> ByeByeDPI <b>активен</b></div>
+                        <div class="phone-card"><i class="fa-solid fa-circle-nodes ok"></i> MTProto × <span id="phoneProxyCount">81</span></div>
+                        <div class="phone-card"><i class="fa-solid fa-robot ai"></i> DeepSeek · Qwen · Claude</div>
+                        <div class="phone-card"><i class="fa-solid fa-bolt warn"></i> Desync / QUIC-block</div>
+                        <div class="phone-btn">ECOSYSTEM READY</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="features-grid">
-            <div class="glass feat-card reveal">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Безграничный VPN</h3>
-                <p>Автоматическое переключение серверов с минимальным пингом.</p>
-            </div>
-            <div class="glass feat-card reveal">
-                <i class="fa-solid fa-globe"></i>
-                <h3>Умный DNS</h3>
-                <p>Защита от фишинга и ускорение загрузки страниц в один клик.</p>
-            </div>
-            <div class="glass feat-card reveal">
-                <i class="fa-solid fa-robot"></i>
-                <h3>AI Ассистенты</h3>
-                <p>Прямой доступ к нейросетям Qwen, Gemini и DeepSeek.</p>
-            </div>
-            <div class="glass feat-card reveal">
-                <i class="fa-brands fa-youtube"></i>
-                <h3>YouTube без границ</h3>
-                <p>Фоновый сервис для обхода региональных ограничений.</p>
+        <!-- ===================== ВОЗМОЖНОСТИ ===================== -->
+        <section class="section-block" id="features">
+            <h2 class="section-title reveal"><i class="fa-solid fa-cubes"></i> Возможности приложения</h2>
+            <div class="features-grid">
+                <article class="glass card feat-card reveal">
+                    <div class="feat-icon icon-cyan"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Обход DPI (C++/JNI)</h3>
+                    <p>Нативный движок ByeByeDPI с методами Desync и QUIC-block — трафик проходит там, где обычные VPN бессилен.</p>
+                </article>
+                <article class="glass card feat-card reveal delay-1">
+                    <div class="feat-icon icon-purple"><i class="fa-solid fa-circle-nodes"></i></div>
+                    <h3>MTProto & SOCKS5 менеджер</h3>
+                    <p>Автоматическая загрузка списка прокси, пинг-валидация, ранжирование по отклику и импорт в один тап.</p>
+                </article>
+                <article class="glass card feat-card reveal delay-2">
+                    <div class="feat-icon icon-pink"><i class="fa-solid fa-robot"></i></div>
+                    <h3>AI Hub</h3>
+                    <p>DeepSeek, Qwen, Gemini, Claude и Arena Hub — все нейросети внутри защищённого WebView-контейнера.</p>
+                </article>
+                <article class="glass card feat-card reveal delay-3">
+                    <div class="feat-icon icon-blue"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Glassmorphism UI</h3>
+                    <p>Тёмная палитра, размытые стеклянные карточки, неоновые градиенты и Material You динамические акценты.</p>
+                </article>
             </div>
         </section>
 
-        <section class="cta-box reveal">
-            <h2 style="margin-bottom: 24px;">Готов к цифровому превосходству?</h2>
-            <a href="download.html" class="btn-main">СКАЧАТЬ NFOXAPP</a>
+        <!-- ===================== МОНИТОР ПРОКСИ ===================== -->
+        <section class="section-block" id="proxy-monitor">
+            <h2 class="section-title reveal"><i class="fa-solid fa-tower-broadcast"></i> Монитор прокси-серверов</h2>
+            <div class="glass card monitor-panel reveal">
+                <div class="monitor-toolbar">
+                    <div class="monitor-summary">
+                        <span class="chip chip-total">Всего: <b id="pxTotal">0</b></span>
+                        <span class="chip chip-online">Онлайн: <b id="pxOnline">0</b></span>
+                        <span class="chip chip-offline">Офлайн: <b id="pxOffline">0</b></span>
+                        <span class="chip chip-checking" id="pxChecking" hidden><span class="pulse-dot"></span> проверка…</span>
+                    </div>
+                    <div class="monitor-actions">
+                        <input type="search" id="proxySearch" class="glass-input" placeholder="Поиск сервера…" aria-label="Поиск по серверам">
+                        <button class="btn btn-small btn-ghost" id="checkAllBtn"><i class="fa-solid fa-rotate"></i> Проверить все</button>
+                        <button class="btn btn-small btn-primary" id="copyAllBtn"><i class="fa-solid fa-copy"></i> Копировать всё</button>
+                    </div>
+                </div>
+                <div class="proxy-list-wrap">
+                    <table class="proxy-table">
+                        <thead>
+                            <tr>
+                                <th>#</th><th>Сервер</th><th>Порт</th><th>Тип</th><th>Статус</th><th>Пинг</th><th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="proxyTableBody">
+                            <tr><td colspan="7" class="proxy-empty">Загрузка списка из workproxies.txt…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="monitor-note">
+                    <i class="fa-solid fa-circle-info"></i> Статус TCP-доступности проверяется из браузера через публичный валидатор;
+                    ссылки формата <code>tg://proxy?server=…&amp;port=…&amp;secret=…</code> открываются в Telegram.
+                    Актуальный источник: <a href="workproxies.txt" target="_blank">workproxies.txt</a> ·
+                    <a href="proxies.json" target="_blank">proxies.json</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ===================== AI HUB ===================== -->
+        <section class="section-block" id="ai-hub">
+            <h2 class="section-title reveal"><i class="fa-solid fa-brain"></i> AI Hub — модели под капотом</h2>
+            <div class="ai-grid">
+                <article class="glass card ai-card reveal" data-model="deepseek" tabindex="0">
+                    <div class="ai-head">
+                        <span class="ai-logo" style="--ai-color:#4D6BFE">DS</span>
+                        <div><h3>DeepSeek</h3><span class="ai-tag"> reasoning · code</span></div>
+                    </div>
+                    <p>Глубокое рассуждение и генерация кода. Открытые веса, русский язык «из коробки».</p>
+                    <div class="ai-bar"><span style="--w:94%"></span></div>
+                    <div class="ai-meta"><span>Контекст 128K</span><span class="ai-status">online</span></div>
+                </article>
+                <article class="glass card ai-card reveal delay-1" data-model="qwen" tabindex="0">
+                    <div class="ai-head">
+                        <span class="ai-logo" style="--ai-color:#1J6FFA">QW</span>
+                        <div><h3>Qwen</h3><span class="ai-tag"> multilingual</span></div>
+                    </div>
+                    <p>Мультимодальная модель Alibaba: текст, изображения, длинные документы.</p>
+                    <div class="ai-bar"><span style="--w:90%"></span></div>
+                    <div class="ai-meta"><span>Контекст 1M</span><span class="ai-status">online</span></div>
+                </article>
+                <article class="glass card ai-card reveal delay-2" data-model="gemini" tabindex="0">
+                    <div class="ai-head">
+                        <span class="ai-logo" style="--ai-color:#4285F4">GM</span>
+                        <div><h3>Gemini</h3><span class="ai-tag"> google</span></div>
+                    </div>
+                    <p>Флагман Google: мультимодальность, поиск в реальном времени, агентные сценарии.</p>
+                    <div class="ai-bar"><span style="--w:92%"></span></div>
+                    <div class="ai-meta"><span>Контекст 2M</span><span class="ai-status">online</span></div>
+                </article>
+                <article class="glass card ai-card reveal delay-3" data-model="claude" tabindex="0">
+                    <div class="ai-head">
+                        <span class="ai-logo" style="--ai-color:#D97757">CL</span>
+                        <div><h3>Claude</h3><span class="ai-tag"> Anthropic</span></div>
+                    </div>
+                    <p>Модель Anthropic с лучшим длинным контекстом, безопасностью и стилем изложения.</p>
+                    <div class="ai-bar"><span style="--w:96%"></span></div>
+                    <div class="ai-meta"><span>Контекст 200K</span><span class="ai-status">online</span></div>
+                </article>
+                <article class="glass card ai-card reveal delay-4" data-model="arena" tabindex="0">
+                    <div class="ai-head">
+                        <span class="ai-logo" style="--ai-color:#A855F7">AR</span>
+                        <div><h3>Arena Hub</h3><span class="ai-tag"> battle mode</span></div>
+                    </div>
+                    <p>Сравнение ответов нескольких моделей бок о бок — выбирай сильнейшего в слепом голосовании.</p>
+                    <div class="ai-bar"><span style="--w:88%"></span></div>
+                    <div class="ai-meta"><span>Multi-model</span><span class="ai-status">beta</span></div>
+                </article>
+            </div>
+            <div class="glass card ai-shell-note reveal">
+                <i class="fa-solid fa-browser"></i>
+                <p>Все сервисы открываются в <b>AI Web Shell</b> — изолированном WebView-контейнере NFoxApp
+                   с собственной сетевой маршрутизацией через проверенные прокси.</p>
+                <button class="btn btn-small btn-ghost" id="openShellBtn"><i class="fa-solid fa-up-right-from-square"></i> Открыть веб-шелл</button>
+            </div>
+        </section>
+
+        <!-- ===================== СКАЧИВАНИЕ ===================== -->
+        <section class="section-block" id="download">
+            <div class="glass card download-card reveal">
+                <div class="download-info">
+                    <h2><span class="gradient-text">NFoxApp</span> <span class="badge-ver" id="apkVersionBadge">v1.0.1</span></h2>
+                    <ul class="changelog" id="changelogList">
+                        <li>Загрузка информации о релизе…</li>
+                    </ul>
+                </div>
+                <div class="download-actions">
+                    <a href="#" id="apkDownloadBtn" class="btn btn-primary btn-big"><i class="fa-brands fa-android"></i> Скачать APK</a>
+                    <a href="download.html" class="btn btn-ghost"><i class="fa-solid fa-box-archive"></i> Все версии</a>
+                    <a href="https://github.com/FoxDenApp" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-brands fa-github"></i> Репозиторий</a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('active'));
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+    <!-- ===================== ПОДВАЛ ===================== -->
+    <footer class="site-footer">
+        <div class="footer-inner glass">
+            <div class="footer-brand">🦊 <b>NFoxApp</b> — твой интернет, твои правила.</div>
+            <nav class="footer-nav">
+                <a href="#features">Возможности</a>
+                <a href="workproxies.txt">Прокси-лист</a>
+                <a href="infoapp.html">О приложении</a>
+                <a href="https://t.me/nfoxapp" target="_blank" rel="noopener">Telegram</a>
+            </nav>
+            <div class="footer-copy">© 2026 FoxDenApp · Deployed with GitHub Pages</div>
+        </div>
+    </footer>
+
+    <!-- Тост -->
+    <div class="toast glass" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
 </body>
+</html>

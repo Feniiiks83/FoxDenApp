@@ -1,0 +1,62 @@
+# ============================================================
+#  NFoxApp — автодеплой статического сайта на GitHub Pages
+#  Запускается при каждом push в main (и по тегу v*).
+#  Требуется: Settings → Pages → Source: "GitHub Actions"
+# ============================================================
+name: 🚀 Deploy NFoxApp Site to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["v*"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: 🏗️ Prepare site
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🧹 Assemble _site artifact
+        run: |
+          mkdir -p _site/downloads
+          # Страницы, стили, скрипты и данные
+          cp index.html styles.css style.css app.js _site/ 2>/dev/null || true
+          cp workproxies.txt proxies.json version_metadata.json _site/ 2>/dev/null || true
+          cp download.html infoapp.html README.md _site/ 2>/dev/null || true
+          [ -d screenshots ] && cp -r screenshots _site/
+          # APK-файлы, если лежат в репозитории
+          find . -maxdepth 3 -name "*.apk" -not -path "./_site/*" -exec cp {} _site/downloads/ \; || true
+          # Служебные файлы Pages
+          touch _site/.nojekyll
+
+      - name: ⚙️ Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: 📦 Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: 🌐 Publish
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

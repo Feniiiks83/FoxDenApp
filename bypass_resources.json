@@ -101,8 +101,8 @@
   },
   {
     "id": "tg_ws_proxy",
-    "owner": "nickn170",
-    "repo": "tg-ws-proxy",
+    "owner": "amurcanov",
+    "repo": "tg-ws-proxy-android",
     "name": "TG WS Proxy",
     "description": "WebSocket proxy for Telegram. Bypasses DPI blocks by tunneling messenger traffic through WS/WSS protocol. Works with Cloudflare.",
     "platforms": ["Android", "iOS", "Desktop"],

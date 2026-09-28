@@ -31,10 +31,10 @@
             <a href="#download">Скачать</a>
         </nav>
         <div class="header-actions">
-            <a href="https://github.com/FoxDenApp" target="_blank" rel="noopener" class="icon-btn" title="GitHub репозиторий">
+            <a href="https://github.com/Feniiiks83/FoxDenApp.github.io" target="_blank" rel="noopener" class="icon-btn" title="GitHub репозиторий">
                 <i class="fa-brands fa-github"></i>
             </a>
-            <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+            <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -57,7 +57,7 @@
                     (ByeByeDPI / Desync / QUIC-block) на C++/JNI — в одном стеклянном интерфейсе.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#download" class="btn btn-primary"><i class="fa-solid fa-download"></i> Скачать APK</a>
+                    <a href="https://github.com/Feniiiks83/FoxDenApp/releases/latest" id="heroDownloadBtn" class="btn btn-primary" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Скачать APK</a>
                     <a href="#proxy-monitor" class="btn btn-ghost"><i class="fa-solid fa-tower-broadcast"></i> Монитор прокси</a>
                 </div>
                 <div class="hero-stats">
@@ -118,30 +118,45 @@
                         <span class="chip chip-online">Онлайн: <b id="pxOnline">0</b></span>
                         <span class="chip chip-offline">Офлайн: <b id="pxOffline">0</b></span>
                         <span class="chip chip-checking" id="pxChecking" hidden><span class="pulse-dot"></span> проверка…</span>
+                        <span class="chip chip-shown" id="proxyShownInfo">загрузка…</span>
                     </div>
                     <div class="monitor-actions">
-                        <input type="search" id="proxySearch" class="glass-input" placeholder="Поиск сервера…" aria-label="Поиск по серверам">
+                        <label class="sr-only" for="sourceSelect">Источник серверов</label>
+                        <select id="sourceSelect" class="glass-select" aria-label="Выбор источника серверов"></select>
+                        <input type="search" id="proxySearch" class="glass-input" placeholder="Поиск по хосту / типу / источнику…" aria-label="Поиск по серверам">
                         <button class="btn btn-small btn-ghost" id="checkAllBtn"><i class="fa-solid fa-rotate"></i> Проверить все</button>
                         <button class="btn btn-small btn-primary" id="copyAllBtn"><i class="fa-solid fa-copy"></i> Копировать всё</button>
                     </div>
                 </div>
-                <div class="proxy-list-wrap">
-                    <table class="proxy-table">
-                        <thead>
-                            <tr>
-                                <th>#</th><th>Сервер</th><th>Порт</th><th>Тип</th><th>Статус</th><th>Пинг</th><th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="proxyTableBody">
-                            <tr><td colspan="7" class="proxy-empty">Загрузка списка из workproxies.txt…</td></tr>
-                        </tbody>
-                    </table>
+                <div class="proxy-grid-wrap" id="proxyGrid" aria-live="polite">
+                    <!-- Карточки серверов рендерятся динамически из app.js -->
+                    <div class="glass card px-card skeleton-card" aria-hidden="true">
+                        <div class="px-card-head"><span class="sk sk-dot"></span><span class="sk sk-line" style="flex:2"></span></div>
+                        <div class="sk sk-block"></div>
+                        <div class="px-card-actions"><span class="sk sk-btn"></span><span class="sk sk-btn"></span></div>
+                    </div>
+                    <div class="glass card px-card skeleton-card" aria-hidden="true">
+                        <div class="px-card-head"><span class="sk sk-dot"></span><span class="sk sk-line" style="flex:2"></span></div>
+                        <div class="sk sk-block"></div>
+                        <div class="px-card-actions"><span class="sk sk-btn"></span><span class="sk sk-btn"></span></div>
+                    </div>
+                    <div class="glass card px-card skeleton-card" aria-hidden="true">
+                        <div class="px-card-head"><span class="sk sk-dot"></span><span class="sk sk-line" style="flex:2"></span></div>
+                        <div class="sk sk-block"></div>
+                        <div class="px-card-actions"><span class="sk sk-btn"></span><span class="sk sk-btn"></span></div>
+                    </div>
+                    <div class="glass card px-card skeleton-card" aria-hidden="true">
+                        <div class="px-card-head"><span class="sk sk-dot"></span><span class="sk sk-line" style="flex:2"></span></div>
+                        <div class="sk sk-block"></div>
+                        <div class="px-card-actions"><span class="sk sk-btn"></span><span class="sk sk-btn"></span></div>
+                    </div>
                 </div>
                 <p class="monitor-note">
-                    <i class="fa-solid fa-circle-info"></i> Статус TCP-доступности проверяется из браузера через публичный валидатор;
-                    ссылки формата <code>tg://proxy?server=…&amp;port=…&amp;secret=…</code> открываются в Telegram.
-                    Актуальный источник: <a href="workproxies.txt" target="_blank">workproxies.txt</a> ·
-                    <a href="proxies.json" target="_blank">proxies.json</a>
+                    <i class="fa-solid fa-circle-info"></i> Список загружается динамически с внешних Raw GitHub-источников;
+                    статус TCP-доступности проверяется через публичный валидатор, а ссылки формата
+                    <code>tg://proxy?server=…&amp;port=…&amp;secret=…</code> открываются в Telegram.
+                    Резервные источники: <a href="workproxies.txt" target="_blank" rel="noopener">workproxies.txt</a> ·
+                    <a href="proxies.json" target="_blank" rel="noopener">proxies.json</a>
                 </p>
             </div>
         </section>
@@ -214,9 +229,9 @@
                     </ul>
                 </div>
                 <div class="download-actions">
-                    <a href="#" id="apkDownloadBtn" class="btn btn-primary btn-big"><i class="fa-brands fa-android"></i> Скачать APK</a>
-                    <a href="download.html" class="btn btn-ghost"><i class="fa-solid fa-box-archive"></i> Все версии</a>
-                    <a href="https://github.com/FoxDenApp" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-brands fa-github"></i> Репозиторий</a>
+                    <a href="https://github.com/Feniiiks83/FoxDenApp/releases/latest" id="apkDownloadBtn" class="btn btn-primary btn-big" target="_blank" rel="noopener"><i class="fa-brands fa-android"></i> Скачать APK</a>
+                    <a href="https://github.com/Feniiiks83/FoxDenApp/releases" class="btn btn-ghost" target="_blank" rel="noopener"><i class="fa-solid fa-box-archive"></i> Все версии (Releases)</a>
+                    <a href="https://github.com/Feniiiks83/FoxDenApp.github.io" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-brands fa-github"></i> Репозиторий</a>
                 </div>
             </div>
         </section>
@@ -228,8 +243,10 @@
             <div class="footer-brand">🦊 <b>NFoxApp</b> — твой интернет, твои правила.</div>
             <nav class="footer-nav">
                 <a href="#features">Возможности</a>
-                <a href="workproxies.txt">Прокси-лист</a>
+                <a href="#proxy-monitor">Прокси-монитор</a>
+                <a href="workproxies.txt" target="_blank" rel="noopener">Прокси-лист</a>
                 <a href="infoapp.html">О приложении</a>
+                <a href="https://github.com/Feniiiks83/FoxDenApp/releases/latest" target="_blank" rel="noopener">Скачать APK</a>
                 <a href="https://t.me/nfoxapp" target="_blank" rel="noopener">Telegram</a>
             </nav>
             <div class="footer-copy">© 2026 FoxDenApp · Deployed with GitHub Pages</div>

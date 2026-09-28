@@ -4,7 +4,7 @@
     "owner": "hufime",
     "repo": "ByeByeDPI",
     "name": "ByeByeDPI",
-    "description": "Android-клиент на основе ByeByeDPI с SOCKS/VPN режимом. Обход цензуры через десинхронизацию TLS ClientHello. Не требует root-прав.",
+    "description": "Android SOCKS/VPN client bypassing censorship via TLS ClientHello desynchronization. No root required.",
     "platforms": ["Android"],
     "category": "Mobile",
     "iconKey": "android"
@@ -14,7 +14,7 @@
     "owner": "nomoresat",
     "repo": "DPITunnel-android",
     "name": "DPI Tunnel",
-    "description": "Android-приложение для обхода цензуры. Работает без root через локальный прокси-сервер. Поддерживает SNI-спуфинг и TLS-десинхронизацию.",
+    "description": "Android app for bypassing censorship. Works without root via local proxy with SNI spoofing and TLS desync.",
     "platforms": ["Android"],
     "category": "Mobile",
     "iconKey": "smartphone"
@@ -24,7 +24,7 @@
     "owner": "krlvm",
     "repo": "PowerTunnel-Android",
     "name": "PowerTunnel Android",
-    "description": "Android-версия популярного антицензурного прокси. Работает через VPN-режим без root, поддерживает плагины.",
+    "description": "Android version of popular anti-censorship proxy. Works via VPN mode without root, supports plugins.",
     "platforms": ["Android"],
     "category": "Mobile",
     "iconKey": "antenna"
@@ -34,7 +34,7 @@
     "owner": "getlantern",
     "repo": "lantern",
     "name": "Lantern",
-    "description": "Децентрализованная P2P-сеть для обхода цензуры. Android-клиент подключается к доверенным пирам в свободных странах.",
+    "description": "Decentralized P2P network for bypassing censorship. Android client connects to trusted peers in free countries.",
     "platforms": ["Android", "iOS", "Windows"],
     "category": "All",
     "iconKey": "public"
@@ -44,7 +44,7 @@
     "owner": "Psiphon-Inc",
     "repo": "psiphon-android",
     "name": "Psiphon",
-    "description": "Известный инструмент от Citizen Lab. Комбинирует VPN, SSH и HTTP proxy для обхода цензуры. Проверен годами.",
+    "description": "Citizen Lab tool combining VPN, SSH and HTTP proxy for bypassing censorship. Battle-tested over years.",
     "platforms": ["Android", "iOS", "Windows"],
     "category": "All",
     "iconKey": "shield"
@@ -54,7 +54,7 @@
     "owner": "cloudflare",
     "repo": "cloudflare-docs",
     "name": "Cloudflare WARP",
-    "description": "Бесплатный WireGuard-туннель от Cloudflare. Не является полноценным VPN, но помогает обходить базовые блокировки и ускоряет соединение.",
+    "description": "Free WireGuard tunnel from Cloudflare. Not a full VPN but helps bypass basic blocks and improves connection speed.",
     "platforms": ["Android", "iOS", "Windows", "macOS", "Linux"],
     "category": "All",
     "iconKey": "cloud"
@@ -64,7 +64,7 @@
     "owner": "dove-studio",
     "repo": "ByeDPIAndroid",
     "name": "ByeDPI Android",
-    "description": "Альтернативный Android-клиент для ByeDPI с удобным интерфейсом. Обход DPI через подмену пакетов.",
+    "description": "Alternative Android client for ByeDPI with user-friendly interface. Bypasses DPI via packet spoofing.",
     "platforms": ["Android"],
     "category": "Mobile",
     "iconKey": "android"
@@ -74,17 +74,17 @@
     "owner": "guardianproject",
     "repo": "orbot",
     "name": "Orbot (Tor)",
-    "description": "Официальный Tor-прокси для Android. Маршрутизирует трафик через сеть добровольцев по всему миру. Максимальная анонимность.",
+    "description": "Official Tor proxy for Android. Routes traffic through volunteer network worldwide. Maximum anonymity.",
     "platforms": ["Android"],
     "category": "Mobile",
     "iconKey": "onion"
   },
   {
-    "id": "inviZible",
+    "id": "invizible",
     "owner": "Gedsh",
     "repo": "InviZible",
     "name": "InviZible Pro",
-    "description": "Комбайн из Tor + I2P + Purple I2P + DNSCrypt. Работает без root, скрывает IP и обходит блокировки.",
+    "description": "All-in-one: Tor + I2P + DNSCrypt. Works without root, hides IP and bypasses blocks.",
     "platforms": ["Android"],
     "category": "Mobile",
     "iconKey": "visibility"
@@ -94,9 +94,49 @@
     "owner": "torproject",
     "repo": "snowflake",
     "name": "Snowflake",
-    "description": "WebRTC-мосты от проекта Tor. Можно использовать как прокси-волонтёр или подключаться через браузерные мосты на Android.",
+    "description": "WebRTC bridges from Tor Project. Can be used as volunteer proxy or connect via browser bridges on Android.",
     "platforms": ["Android", "Browser"],
     "category": "Bridge",
     "iconKey": "acunit"
+  },
+  {
+    "id": "tg_ws_proxy",
+    "owner": "nickn170",
+    "repo": "tg-ws-proxy",
+    "name": "TG WS Proxy",
+    "description": "WebSocket proxy for Telegram. Bypasses DPI blocks by tunneling messenger traffic through WS/WSS protocol. Works with Cloudflare.",
+    "platforms": ["Android", "iOS", "Desktop"],
+    "category": "All",
+    "iconKey": "send"
+  },
+  {
+    "id": "goodbyedpi",
+    "owner": "ValdikSS",
+    "repo": "GoodbyeDPI",
+    "name": "GoodbyeDPI",
+    "description": "Passive DPI bypass tool for Windows. Intercepts and modifies HTTP/HTTPS traffic on the network level.",
+    "platforms": ["Windows"],
+    "category": "Desktop",
+    "iconKey": "public"
+  },
+  {
+    "id": "zapret",
+    "owner": "bol-van",
+    "repo": "zapret",
+    "name": "Zapret",
+    "description": "Powerful DPI bypass for Linux and routers. Supports multiple strategies: desync, disorder, fake, split.",
+    "platforms": ["Linux", "OpenWrt", "macOS"],
+    "category": "Desktop",
+    "iconKey": "shield"
+  },
+  {
+    "id": "spoofdpi",
+    "owner": "xvzc",
+    "repo": "SpoofDPI",
+    "name": "SpoofDPI",
+    "description": "Simple and fast DPI bypass tool written in Go. HTTP/HTTPS proxy with TLS spoofing support.",
+    "platforms": ["Windows", "macOS", "Linux"],
+    "category": "Desktop",
+    "iconKey": "cloud"
   }
 ]

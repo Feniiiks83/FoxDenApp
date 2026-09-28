@@ -1,142 +1,79 @@
 [
   {
-    "id": "byebyedpi",
-    "owner": "hufime",
-    "repo": "ByeByeDPI",
-    "name": "ByeByeDPI",
-    "description": "Android SOCKS/VPN client bypassing censorship via TLS ClientHello desynchronization. No root required.",
-    "platforms": ["Android"],
-    "category": "Mobile",
-    "iconKey": "android"
-  },
-  {
-    "id": "dpitunnel",
-    "owner": "nomoresat",
-    "repo": "DPITunnel-android",
-    "name": "DPI Tunnel",
-    "description": "Android app for bypassing censorship. Works without root via local proxy with SNI spoofing and TLS desync.",
-    "platforms": ["Android"],
-    "category": "Mobile",
-    "iconKey": "smartphone"
-  },
-  {
-    "id": "powertunnel_android",
-    "owner": "krlvm",
-    "repo": "PowerTunnel-Android",
-    "name": "PowerTunnel Android",
-    "description": "Android version of popular anti-censorship proxy. Works via VPN mode without root, supports plugins.",
-    "platforms": ["Android"],
-    "category": "Mobile",
-    "iconKey": "antenna"
-  },
-  {
-    "id": "lantern",
-    "owner": "getlantern",
-    "repo": "lantern",
-    "name": "Lantern",
-    "description": "Decentralized P2P network for bypassing censorship. Android client connects to trusted peers in free countries.",
-    "platforms": ["Android", "iOS", "Windows"],
-    "category": "All",
-    "iconKey": "public"
-  },
-  {
-    "id": "psiphon",
-    "owner": "Psiphon-Inc",
-    "repo": "psiphon-android",
-    "name": "Psiphon",
-    "description": "Citizen Lab tool combining VPN, SSH and HTTP proxy for bypassing censorship. Battle-tested over years.",
-    "platforms": ["Android", "iOS", "Windows"],
-    "category": "All",
-    "iconKey": "shield"
-  },
-  {
-    "id": "warp",
-    "owner": "cloudflare",
-    "repo": "cloudflare-docs",
-    "name": "Cloudflare WARP",
-    "description": "Free WireGuard tunnel from Cloudflare. Not a full VPN but helps bypass basic blocks and improves connection speed.",
-    "platforms": ["Android", "iOS", "Windows", "macOS", "Linux"],
-    "category": "All",
-    "iconKey": "cloud"
-  },
-  {
-    "id": "byedpi_android",
-    "owner": "dove-studio",
-    "repo": "ByeDPIAndroid",
-    "name": "ByeDPI Android",
-    "description": "Alternative Android client for ByeDPI with user-friendly interface. Bypasses DPI via packet spoofing.",
-    "platforms": ["Android"],
-    "category": "Mobile",
-    "iconKey": "android"
-  },
-  {
-    "id": "tor_android",
-    "owner": "guardianproject",
-    "repo": "orbot",
-    "name": "Orbot (Tor)",
-    "description": "Official Tor proxy for Android. Routes traffic through volunteer network worldwide. Maximum anonymity.",
-    "platforms": ["Android"],
-    "category": "Mobile",
-    "iconKey": "onion"
-  },
-  {
-    "id": "invizible",
-    "owner": "Gedsh",
-    "repo": "InviZible",
-    "name": "InviZible Pro",
-    "description": "All-in-one: Tor + I2P + DNSCrypt. Works without root, hides IP and bypasses blocks.",
-    "platforms": ["Android"],
-    "category": "Mobile",
-    "iconKey": "visibility"
-  },
-  {
-    "id": "snowflake_proxy",
-    "owner": "torproject",
-    "repo": "snowflake",
-    "name": "Snowflake",
-    "description": "WebRTC bridges from Tor Project. Can be used as volunteer proxy or connect via browser bridges on Android.",
-    "platforms": ["Android", "Browser"],
-    "category": "Bridge",
-    "iconKey": "acunit"
-  },
-  {
     "id": "tg_ws_proxy",
     "owner": "amurcanov",
     "repo": "tg-ws-proxy-android",
     "name": "TG WS Proxy",
-    "description": "WebSocket proxy for Telegram. Bypasses DPI blocks by tunneling messenger traffic through WS/WSS protocol. Works with Cloudflare.",
-    "platforms": ["Android", "iOS", "Desktop"],
+    "description": "WebSocket proxy for Telegram on Android. Bypasses DPI blocks by tunneling messenger traffic through WS/WSS protocol.",
+    "platforms": ["Android"],
+    "category": "Mobile",
+    "iconKey": "send",
+    "releasesUrl": "https://github.com/amurcanov/tg-ws-proxy-android/releases"
+  },
+  {
+    "id": "byebyedpi",
+    "owner": "romanvht",
+    "repo": "ByeByeDPI",
+    "name": "ByeByeDPI",
+    "description": "Android client for DPI bypass. Uses TLS ClientHello desynchronization and packet splitting techniques. No root required.",
+    "platforms": ["Android"],
+    "category": "Mobile",
+    "iconKey": "android",
+    "releasesUrl": "https://github.com/romanvht/ByeByeDPI/releases"
+  },
+  {
+    "id": "orbot",
+    "owner": "guardianproject",
+    "repo": "orbot-android",
+    "name": "Orbot (Tor)",
+    "description": "Official Tor proxy for Android by Guardian Project. Routes traffic through volunteer network worldwide. Maximum anonymity.",
+    "platforms": ["Android"],
+    "category": "Mobile",
+    "iconKey": "onion",
+    "releasesUrl": "https://github.com/guardianproject/orbot-android/releases"
+  },
+  {
+    "id": "v2rayng",
+    "owner": "2dust",
+    "repo": "v2rayNG",
+    "name": "v2rayNG",
+    "description": "V2Ray client for Android. Supports VMess, VLESS, Shadowsocks, Trojan protocols. Popular open-source VPN solution.",
+    "platforms": ["Android"],
+    "category": "Mobile",
+    "iconKey": "shield",
+    "releasesUrl": "https://github.com/2dust/v2rayNG/releases"
+  },
+  {
+    "id": "dpitunnel",
+    "owner": "evelynandrist",
+    "repo": "DPITunnel",
+    "name": "DPI Tunnel",
+    "description": "Android app for bypassing censorship without root. Local proxy with SNI spoofing and TLS desynchronization techniques.",
+    "platforms": ["Android"],
+    "category": "Mobile",
+    "iconKey": "smartphone",
+    "releasesUrl": "https://github.com/evelynandrist/DPITunnel/releases"
+  },
+  {
+    "id": "hiddify",
+    "owner": "hiddify",
+    "repo": "hiddify-app",
+    "name": "Hiddify",
+    "description": "Multi-protocol anti-censorship app. Supports Hysteria2, VLESS, VMess, Trojan, SSH with user-friendly interface.",
+    "platforms": ["Android", "iOS", "Windows", "macOS", "Linux"],
     "category": "All",
-    "iconKey": "send"
+    "iconKey": "visibility",
+    "releasesUrl": "https://github.com/hiddify/hiddify-app/releases"
   },
   {
-    "id": "goodbyedpi",
-    "owner": "ValdikSS",
-    "repo": "GoodbyeDPI",
-    "name": "GoodbyeDPI",
-    "description": "Passive DPI bypass tool for Windows. Intercepts and modifies HTTP/HTTPS traffic on the network level.",
-    "platforms": ["Windows"],
-    "category": "Desktop",
-    "iconKey": "public"
-  },
-  {
-    "id": "zapret",
-    "owner": "bol-van",
-    "repo": "zapret",
-    "name": "Zapret",
-    "description": "Powerful DPI bypass for Linux and routers. Supports multiple strategies: desync, disorder, fake, split.",
-    "platforms": ["Linux", "OpenWrt", "macOS"],
-    "category": "Desktop",
-    "iconKey": "shield"
-  },
-  {
-    "id": "spoofdpi",
-    "owner": "xvzc",
-    "repo": "SpoofDPI",
-    "name": "SpoofDPI",
-    "description": "Simple and fast DPI bypass tool written in Go. HTTP/HTTPS proxy with TLS spoofing support.",
-    "platforms": ["Windows", "macOS", "Linux"],
-    "category": "Desktop",
-    "iconKey": "cloud"
+    "id": "powertunnel",
+    "owner": "krlvm",
+    "repo": "PowerTunnel",
+    "name": "PowerTunnel",
+    "description": "Cross-platform anti-censorship proxy with plugin architecture. Available as desktop app and Android client.",
+    "platforms": ["Android", "Windows", "macOS", "Linux"],
+    "category": "All",
+    "iconKey": "antenna",
+    "releasesUrl": "https://github.com/krlvm/PowerTunnel/releases"
   }
 ]

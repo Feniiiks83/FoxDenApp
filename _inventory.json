@@ -1,0 +1,116 @@
+[
+  {
+    "path": ".github/workflows/deploy.yml",
+    "ext": ".yml",
+    "size": 1973,
+    "sha256": "f7c7efb002dd7ce01995c0d78d7a634a65c655d796f01b9f821dd21b95d2d111"
+  },
+  {
+    "path": ".github/workflows/dns_update.yml",
+    "ext": ".yml",
+    "size": 2542,
+    "sha256": "6ceba2d107bca119291b909ce038309f4010e1510c8134c6c0633d9fd086fc22"
+  },
+  {
+    "path": ".gitignore",
+    "ext": "(no ext)",
+    "size": 7,
+    "sha256": "d29a0939bcb51176dd565a5e2d33214ce5204806b384bd80a72cb40861cdc7b9"
+  },
+  {
+    "path": "README.md",
+    "ext": ".md",
+    "size": 8313,
+    "sha256": "12bf8e918437666cd6b693aeefb5fd86df38bcb9a5e6b205e796e892278acba5"
+  },
+  {
+    "path": "app.js",
+    "ext": ".js",
+    "size": 14311,
+    "sha256": "f996b37a179366f1312e08f42d5b89ca19a604aa8a5e2906432c6eea121a1c1c"
+  },
+  {
+    "path": "audit_inventory.py",
+    "ext": ".py",
+    "size": 1759,
+    "sha256": "60c4c36fbdd87ad02c92210167dbba5f655b723fd68daf7202b78b75cc245483"
+  },
+  {
+    "path": "download.html",
+    "ext": ".html",
+    "size": 6511,
+    "sha256": "13cb6bd22c1fa1f17ca6514fa74fca76fb4e8fdac64ce84c13cd6d9ae68913af"
+  },
+  {
+    "path": "index.html",
+    "ext": ".html",
+    "size": 16362,
+    "sha256": "3fcab24e4039695e4c06e7c1c151a421cbceca1048d3f7f1f25e4121ac8d53cb"
+  },
+  {
+    "path": "infoapp.html",
+    "ext": ".html",
+    "size": 25487,
+    "sha256": "b98766de5150488dcdb54b3e28f6b54b0e66d795e451e27c758d037ca4d811fc"
+  },
+  {
+    "path": "monitor.py",
+    "ext": ".py",
+    "size": 15715,
+    "sha256": "c7944a0ad6f3fbb40ec6b5d09d41417bc2f6f6336df021c0d88ddb6d5adebcc4"
+  },
+  {
+    "path": "proxies.json",
+    "ext": ".json",
+    "size": 11964,
+    "sha256": "29963afc3f10b849a7c7908b5c756070f27cbaae1e57ff26d43218986c84dd43"
+  },
+  {
+    "path": "requirements.txt",
+    "ext": ".txt",
+    "size": 34,
+    "sha256": "86df3a69aaf8aadf5db49f6c063bce8f6b3f9874655d835c46fe7cdc916764bf"
+  },
+  {
+    "path": "screenshots  /icon_nfoxapp.png",
+    "ext": ".png",
+    "size": 394267,
+    "sha256": "ffc5b7edc0614c5667df20d5e8ffd500bb3893f986413183d36c8ef997fa8b66"
+  },
+  {
+    "path": "screenshots/icon_nfoxapp_rounded.png",
+    "ext": ".png",
+    "size": 444915,
+    "sha256": "af34c3587f276aab490dc471a42ffcef424e08b404509d7a18ad4a9b125d1ee1"
+  },
+  {
+    "path": "screenshots/screen1.jpg",
+    "ext": ".jpg",
+    "size": 47375,
+    "sha256": "595a5e219d5633408db06775bccb7513ca0d31ef33acb3416555c5f83c8fb672"
+  },
+  {
+    "path": "style.css",
+    "ext": ".css",
+    "size": 5243,
+    "sha256": "7620dd3b481453b694d289e1cd1ced798d68029f52ce52abe5c1499645526eef"
+  },
+  {
+    "path": "styles.css",
+    "ext": ".css",
+    "size": 19668,
+    "sha256": "daa59de8cd7b45f0ffcd3f4f70d5583582f1ea1c6e078d7b267fd809871ecc17"
+  },
+  {
+    "path": "version_metadata.json",
+    "ext": ".json",
+    "size": 385,
+    "sha256": "f336d7bb3ca24f780471001b418fd05f976d88cf5860493a56a0316f15c02b9b"
+  },
+  {
+    "path": "workproxies.txt",
+    "ext": ".txt",
+    "size": 9714,
+    "sha256": "6dec65e55a22af6fc6bf9b504c4ce6b3a9e94d1f187b09a3dab8a944ee95f20d"
+  }
+]

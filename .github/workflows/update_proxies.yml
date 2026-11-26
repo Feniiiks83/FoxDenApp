@@ -1,0 +1,31 @@
+name: 🔄 Update Verified Proxies
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"   # каждые 2 часа
+  workflow_dispatch: {}     # можно запустить вручную кнопкой в Actions
+
+permissions:
+  contents: write
+
+jobs:
+  check-proxies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 🧪 Verify proxies (real TCP ping)
+        run: python scripts/update_proxies.py
+
+      - name: 💾 Commit verified lists
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(proxies): update verified proxy list"
+          file_pattern: "proxies.json workproxies.txt"
